@@ -1,0 +1,84 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: sans-serif;
+}
+html{
+/* font-size: 10px; */
+/* 10px / 16px = 0.625 = 62.5% */
+/* default 1rem = 16px  */
+/* 10px sahuliyat ke liye */
+font-size: 62.5%;
+overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    display: none;
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.flex{
+    display: flex;
+}
+.align-center{
+    align-items: center;
+}
+.justify-content{
+    justify-content: center;
+}
+.space-between{
+    justify-content: space-between;
+}
+.grid{
+    display: grid;
+}
+
+.grid-2--cols{
+    grid-template-columns: repeat(2,1fr);
+}
+.grid-3--cols{
+    grid-template-columns: repeat(3,1fr);
+}
+.grid-4--cols{
+    grid-template-columns: repeat(4,1fr);
+}
+
+li {
+    list-style: none;
+}
+
+.btn {
+    outline: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50px;
+    border: 1px solid #525579;
+    color: #525579;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.top-heading{
+    color: #525579;
+    text-align: start;
+    font-size: clamp(2.5rem,5vw,4rem);
+    margin-bottom: clamp(10px,5vw,16px);
+}
+.divider{
+    width: 80%;
+    height: 1px;
+    background-color: #c5c5c5;
+}

@@ -4,7 +4,7 @@
 header {
     /* background-color: aqua; */
     padding: 2rem 18px;
-    min-width: 1200px;
+    min-width: 80%;
 }
 .logo{
     cursor: pointer;
@@ -41,4 +41,68 @@ header {
 .nav-links .active{
 padding-bottom: 2px;
 border-bottom: 2px solid #525579;
+}
+
+@media (max-width:1050px) {
+    header {
+        /* background-color: aqua; */
+        padding: 2rem 0px;
+        min-width: 90%;
+    }
+    .brand-logo .logo{
+        width: 140px;
+    }
+    .nav-links{
+        gap: 20px;
+        font-size: 16px;
+    }
+    .icon-container{
+        font-size: 16px;
+        gap: 30px;
+    }
+    .icon-container button{
+        padding: 8px 25px;
+        font-size: 16px;
+    }
+}
+@media (max-width:900px) {
+    header {
+        /* background-color: aqua; */
+        padding: 1rem 0px;
+        min-width: 90%;
+    }
+    .brand-logo .logo{
+        width: 120px;
+    }
+    .nav-links{
+        gap: 15px;
+        font-size: 16px;
+    }
+    .icon-container{
+        font-size: 15px;
+        gap: 20px;
+    }
+    .icon-container button{
+        padding: 7px 20px;
+        font-size: 16px;
+    }
+}
+@media (max-width:750px) {
+    header {
+        /* background-color: aqua; */
+        padding: 1rem 0px;
+        min-width: 90%;
+    }
+    .navbar .nav-links{
+        display: none;
+    }
+    .icon-container{
+        font-size: 14px;
+        gap: 12px;
+    }
+    .icon-container button{
+        padding: 6px 16px;
+        font-size: 14px
+    }
+    
 }

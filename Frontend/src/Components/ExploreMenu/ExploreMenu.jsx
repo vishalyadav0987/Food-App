@@ -24,7 +24,7 @@ const ExploreMenu = ({ category, setCategory }) => {
                                         <img
                                             src={item.menu_image}
                                             alt=""
-                                            className={category === item.menu_image ? "active" : ""}
+                                            className={category === item.menu_name ? "active" : ""}
                                         />
                                         <p className='explore-menu-list-item-text'>{item.menu_name}</p>
                                     </div>

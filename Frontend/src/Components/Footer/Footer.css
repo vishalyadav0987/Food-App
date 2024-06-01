@@ -27,7 +27,7 @@
     align-items: start;
     gap: 20px;
 }
-
+ 
 .footer-content-left li,
 .footer-content-right li,
 .footer-content-center li {
@@ -51,4 +51,17 @@
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+@media (max-width:750px) {
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .footer-copyright{
+        text-align: center;
+    }
+    .footer{
+        padding: 20px 5vw;
+    }
 }
