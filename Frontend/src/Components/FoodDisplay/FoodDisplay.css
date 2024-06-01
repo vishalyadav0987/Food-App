@@ -1,0 +1,18 @@
+#food-display{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.food-card-container {
+    padding: 2rem 18px;
+    min-width: 1200px;
+   
+}
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    gap: 30px;
+}
+
