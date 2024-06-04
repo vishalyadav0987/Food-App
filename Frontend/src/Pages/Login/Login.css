@@ -62,3 +62,9 @@
     cursor: pointer;
     font-weight: 600;
 }
+
+@media  (max-width:750px){
+    .login-register-container{
+        padding:0 10px;
+    }
+}
