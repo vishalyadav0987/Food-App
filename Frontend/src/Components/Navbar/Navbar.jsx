@@ -1,17 +1,24 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useContext } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { assets } from '../../assets/assets'
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingBag } from "react-icons/fa";
+import { StoreContext } from '../../Context/StoreContext';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
     const [navLinkLine, setNavLinkLine] = useState("home");
     const [scrolled, setScrolled] = useState(false);
+    // const navigate = useNavigate();
+    const {getTotalCartAmount} = useContext(StoreContext)
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      if(window.scrollY===0){
+        setNavLinkLine("home");
+        // navigate('/');
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -57,10 +64,10 @@ const Navbar = () => {
                     <div className="icon-container flex align-center">
                         <FaRegHeart />
                         <div className="basket-icon">
-                            <FaShoppingBag />
-                            <div className="dot"></div>
+                            <Link to={'/cart'}><FaShoppingBag /></Link>
+                            <div className={getTotalCartAmount()===0?"":"dot"}></div>
                         </div>
-                        <button className='register btn'>sign in</button>
+                        <button className='register btn' onClick={()=>setShowLogin(true)}>sign in</button>
                     </div>
                 </header>
             </section>
