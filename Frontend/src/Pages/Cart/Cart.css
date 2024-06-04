@@ -1,0 +1,129 @@
+.cart-container {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    min-width: 80%;
+    padding: 2rem 18px;
+}
+.cart-header{
+    padding: 1rem 18px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    font-size: max(1vw,12px);
+    color: gray;
+    align-items: center;
+}
+
+.cart-container .divider {
+    margin: 10px 0;
+    width: 100%;
+    background-color: rgba(49, 45, 45, 0.653);
+}
+.cart-item{
+    margin:10px 0;
+    padding: 0 18px;
+    color: black;
+}
+.cart-item img:nth-child(1){
+    width: 50px;
+}
+.cart-item img:nth-last-child(1){
+    filter:contrast(6);
+    width: 15px;
+    cursor: pointer;
+}
+
+.cart-bottom{
+    margin-top: 80px;
+}
+.cart-total{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    
+}
+.cart-bottom h2{
+    font-size: clamp(1.2rem,5vw,2.5rem);
+    margin-bottom: 2rem;
+}
+.cart-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 6px;
+}
+.cart-total-details{
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: clamp(1rem,5vw,1.4rem);
+}
+.cart-promoCode{
+    flex: 0.4;
+}
+.cart-total-details button{
+    padding: 15px;
+    outline: none;
+    border: none;
+    border: 1px solid tomato;
+    background-color: tomato;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+.cart-promoCode div p{
+    font-size: clamp(1rem,5vw,1.5rem);
+    margin-bottom: 1rem;
+    color: #555;
+}
+.cart-promo-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+
+}
+.cart-promo-input input{
+    padding: 10px;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+.cart-promo-input button{
+    width: max(10vw,150px);
+    padding: 12px 5px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+@media (max-width:750px) {
+    .cart-total{
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+    .cart-promoCode{
+        justify-content: start;
+    }
+    .cart-item{
+        gap: 10px;
+        padding:0 10px;
+    }
+    .cart-header{
+        padding:0 10px;
+
+    }
+    .cart-container {
+        margin-top: 30px;
+    }
+}
