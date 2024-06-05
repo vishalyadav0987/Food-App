@@ -1,11 +1,16 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const connectDB = require('./connectDB/connect')
+const connectDB = require('./connectDB/connect');
+const foodRoutes = require('./routes/foodRoute');;
 
 app.use(express.json());
 app.use(cors());
+
+
+// API FOOD ROUTE ADD
+app.use('/api/v1/food', foodRoutes);
 
 app.get('/test', (req, res) => {
     res.send("Hi !! this is test route for testing purpose");
