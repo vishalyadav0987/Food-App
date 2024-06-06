@@ -21,3 +21,8 @@
     border-radius: 3px 0 0 3px;
     cursor: pointer;
 }
+@media (max-width:900px) {
+    .sideBar-option p {
+        display:none;
+    }
+}
