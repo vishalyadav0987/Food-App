@@ -1,6 +1,6 @@
 .sideBar{
     width: 18%;
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
     border-right:1px solid #a9a9a9 ;
     border-top: 0;
 }
@@ -20,6 +20,10 @@
     padding: 8px 10px;
     border-radius: 3px 0 0 3px;
     cursor: pointer;
+}
+.sideBar-option.active{
+    border-color: tomato;
+    background-color: #fff0ed;
 }
 @media (max-width:900px) {
     .sideBar-option p {
