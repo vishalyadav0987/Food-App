@@ -1,0 +1,16 @@
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:8px 4%;
+}
+.navbar-container .logo{
+    width:max(10%,80px);
+    cursor: pointer;
+}
+.navbar-container .admin-logo{
+    width: 50px;
+    border: 2px solid tomato;
+    border-radius: 50%;
+    cursor: pointer;
+}
