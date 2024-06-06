@@ -1,0 +1,75 @@
+.add-container {
+    width: 70%;
+    padding: 50px 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-x: hidden;
+}
+
+.upload-img-container p,
+.product-name-container p,
+.product-description-container p,
+.product-category-price-container p {
+    margin-bottom: 6px;
+}
+
+.upload-img-container img {
+    width: 180px;
+    border-radius: 3px;
+}
+
+.product-name-container input ,
+.product-price-container input{
+    padding: 8px;
+    max-width: 50%;
+    border-radius: 3px;
+    outline-color: tomato;
+    border: 1px solid #a9a9a9;
+}
+
+.product-description-container textarea {
+    width: 180px;
+    height: 100px;
+    padding: 8px;
+    border-radius: 3px;
+    outline-color: tomato;
+}
+
+.product-category-price-container {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.product-category-container select{
+    padding: 8px;
+    border-radius: 3px;
+    outline-color: tomato;
+}
+
+.add-btn{
+    max-width: 120px;
+    padding: 12px 10px;
+    border: none;
+    outline: none;
+    background-color: tomato;
+    border: 1px solid #fff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+input::placeholder{
+    font-size: 14px;
+}
+@media (max-width:750px) {
+    .add-container{
+        font-size:14px;
+        width: 100%;
+    }
+    input::placeholder{
+        font-size: 12px;
+    }
+}
+
+
