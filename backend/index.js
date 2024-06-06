@@ -11,12 +11,13 @@ app.use(cors());
 
 // API FOOD ROUTE ADD
 app.use('/api/v1/food', foodRoutes);
+app.use('/images', express.static('./uploads')); // SHOWING IMAGE ON LOCALHOST LINK [http://localhost:3000/images/17176555682191705388450800.jpg]
 
 app.get('/test', (req, res) => {
     res.send("Hi !! this is test route for testing purpose");
 })
 
-const PORT = 4000 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
