@@ -3,7 +3,8 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 const connectDB = require('./connectDB/connect');
-const foodRoutes = require('./routes/foodRoute');;
+const foodRoutes = require('./routes/foodRoute');
+const userRoutes = require('./routes/userRoute');
 
 app.use(express.json());
 app.use(cors());
@@ -12,6 +13,7 @@ app.use(cors());
 // API FOOD ROUTE ADD
 app.use('/api/v1/food', foodRoutes);
 app.use('/images', express.static('./uploads')); // SHOWING IMAGE ON LOCALHOST LINK [http://localhost:3000/images/17176555682191705388450800.jpg]
+app.use('/api/v1/user',userRoutes);
 
 app.get('/test', (req, res) => {
     res.send("Hi !! this is test route for testing purpose");
