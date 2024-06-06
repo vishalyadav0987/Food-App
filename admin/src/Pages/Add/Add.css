@@ -19,17 +19,21 @@
     border-radius: 3px;
 }
 
-.product-name-container input ,
-.product-price-container input{
+.product-name-container input,
+.product-price-container input {
     padding: 8px;
-    max-width: 50%;
+    width: 30%;
     border-radius: 3px;
     outline-color: tomato;
     border: 1px solid #a9a9a9;
 }
 
+.product-price-container input {
+    width: 120px;
+}
+
 .product-description-container textarea {
-    width: 180px;
+    width: 30%;
     height: 100px;
     padding: 8px;
     border-radius: 3px;
@@ -41,13 +45,14 @@
     gap: 16px;
     align-items: center;
 }
-.product-category-container select{
+
+.product-category-container select {
     padding: 8px;
     border-radius: 3px;
     outline-color: tomato;
 }
 
-.add-btn{
+.add-btn {
     max-width: 120px;
     padding: 12px 10px;
     border: none;
@@ -59,17 +64,27 @@
     cursor: pointer;
     margin-top: 20px;
 }
-input::placeholder{
+
+input::placeholder {
     font-size: 14px;
 }
+
 @media (max-width:750px) {
-    .add-container{
-        font-size:14px;
+    .add-container {
+        font-size: 14px;
         width: 100%;
     }
-    input::placeholder{
+
+    input::placeholder {
         font-size: 12px;
     }
+
+    .product-description-container textarea {
+        width: 100%;
+    }
+
+    .product-name-container input,
+    .product-price-container input {
+        width: 100%;
+    }
 }
-
-
