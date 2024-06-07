@@ -5,7 +5,22 @@ const validator = require('validator');
 
 //LOGIN USER
 const Login = async (req, res) => {
-    
+    const {email,password}=req.body;
+    try {
+        const user = await UserSchema.findOne({email});
+        if(!user){
+            return res.json({success:false,message:"User doesn't exsist!"});
+        }
+        const isMatch =await bcrypt.compare(password,user.password);
+        if(!isMatch){
+            return res.json({success:false,message:"Invalid Credential!"});
+        }
+        const token = generateToken(user._id);
+        res.json({success:true,token,message:"User succesfully logged in!"});
+    } catch (error) {
+        console.log("Error in Login Function:",error);
+        res.json({success:false,message:"Something went wrong",error}); 
+    }
 }
 
 // REGISTER USER
@@ -36,7 +51,7 @@ const Register = async (req, res) => {
     })
     const user = await newUser.save();
     const token = generateToken(user._id);
-    res.json({success:true,user,token,message:"User succesfully register"});
+    res.json({success:true,token,message:"User succesfully register"});
     } catch (error) {
         console.log("Error in Register Function:",error);
         res.json({success:false,message:"Something went wrong",error}); 
