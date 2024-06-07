@@ -45,7 +45,15 @@ const removeFromCart = async (req, res) => {
 
 //FETCH USER CART DATA
 const getCartData = async (req, res) => {
-
+    try {
+        const { userId } = req.body;
+        const userData = await UserSchema.findOne({_id:userId});
+        const cartData = await userData?.cartData;
+        res.json({success:true,cartData});
+    } catch (error) {
+        console.log("Error in getCartData Function->", error);
+        res.json({ success: false, message: error.message });
+    }
 }
 
 module.exports = {
