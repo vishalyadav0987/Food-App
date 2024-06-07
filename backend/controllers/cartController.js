@@ -28,7 +28,19 @@ const addToCart = async (req, res) => {
 
 //REMOVE ITEM TO USER CART
 const removeFromCart = async (req, res) => {
-    
+    try {
+        const { userId } = req.body;
+        const userData = await UserSchema.findOne({_id:userId});
+        const cartData = await userData?.cartData;
+        if(cartData[req.body.itemId]>0){
+            cartData[req.body.itemId] -= 1;
+        }
+        await UserSchema.findByIdAndUpdate(userId,{cartData});
+        res.json({success:true,message:"Removed From Cart"});
+    } catch (error) {
+        console.log("Error in removeFromCart Function->", error);
+        res.json({ success: false, message: error.message });
+    }
 }
 
 //FETCH USER CART DATA
