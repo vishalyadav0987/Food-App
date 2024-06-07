@@ -84,3 +84,7 @@ li {
     height: 1px;
     background-color: #c5c5c5;
 }
+
+body hr{
+    background-color: #9a9a9a;
+}
