@@ -5,12 +5,12 @@ import { StoreContext } from '../../Context/StoreContext';
 
 const FoodCard = ({ _id, category, description, image, name, price }) => {
     // const [itemCount, setItemCount] = useState(0);
-    const { cartItem, setCartItem, addToCart, removeFromCart, } = useContext(StoreContext);
+    const { cartItem, setCartItem, addToCart, removeFromCart,url } = useContext(StoreContext);
     return (
         <section className='food-card' style={{ color: "black" }}>
             <div className="card">
                 <div className="card-img">
-                    <img src={image} alt="" className='food-item-image' />
+                    <img src={`${url}/images/${image}`} alt="" className='food-item-image' />
                     {/* {
                         !itemCount ?
                             (<img
