@@ -50,7 +50,41 @@ border-bottom: 2px solid #525579;
     background-color:rgba(255, 255, 255, 0.9);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-
+.navbar-profile{
+    position: relative;
+    background-color: #fcfcfc;
+}
+.nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+.navbar-profile:hover .nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    background-color: #fff2ef;
+}
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.nav-profile-dropdown img{
+    width: 20px;
+}
+.nav-profile-dropdown li:hover{
+    color: tomato;
+}
+.nav-profile-dropdown li p{
+    font-size: 16px;
+}
 @media (max-width:1050px) {
     header {
         /* background-color: aqua; */
