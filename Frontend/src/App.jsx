@@ -6,6 +6,7 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder'
 import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 import Login from './Pages/Login/Login'
+import {Toaster} from 'react-hot-toast'
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -13,6 +14,7 @@ const App = () => {
     <>
       <BrowserRouter>
       {showLogin ? <Login setShowLogin={setShowLogin}/> : <></>}
+      <Toaster/>
       <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Home />} />
