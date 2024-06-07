@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { createContext, useEffect, useState } from 'react'
-import { food_list } from '../assets/assets';
+// import { food_list } from '../assets/assets'; 1ST WE USE THIS API WHEN I MAKE FRONTEND DESIGN
 
 
 export const StoreContext = createContext(null);
@@ -9,6 +10,7 @@ const StoreContextProvider = (props) => {
     const [cartItem, setCartItem] = useState({});
     const url = "http://localhost:3000";
     const [token, setToken] = useState("");
+    const [food_list, setFood_list] = useState([]);
 
     const addToCart = (itemId) => {
         if (!cartItem[itemId]) {
@@ -34,9 +36,27 @@ const StoreContextProvider = (props) => {
         }
         return TotalAmount;
     }
-    useEffect(() => {
-        console.log(cartItem)
-    }, [cartItem])
+    const fetchFoodListData = async()=>{
+        const response = await axios.get(`${url}/api/v1/food/list`);
+        setFood_list(response.data.data);
+    }
+    useEffect(()=>{
+        async function loadData(){
+            await fetchFoodListData();
+            if (localStorage.getItem("token")) {
+                setToken(localStorage.getItem("token"));
+            }
+        }
+        loadData();
+    },[])
+    // useEffect(() => {
+    //     if (localStorage.getItem("token")) {
+    //         setToken(localStorage.getItem("token"));
+    //     }
+    // }, [])
+    // useEffect(() => {
+    //     console.log(cartItem)
+    // }, [cartItem])
     const contextValue = {
         food_list,
         cartItem,
