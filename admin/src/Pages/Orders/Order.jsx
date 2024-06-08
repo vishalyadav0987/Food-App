@@ -18,6 +18,16 @@ const Order = () => {
       toast.error("Something went wrong,try again later!!");
     }
   }
+  const updateOrderStatusHandler = async (e, orderId) => {
+    const response = await axios.post(`${url}/api/v1/order/status`, {
+      orderId,
+      status: e.target.value
+    });
+    if(response.data.success){
+      toast.success(response.data.message);
+      await fetchAllOrder();
+    }
+  }
   useEffect(() => {
     fetchAllOrder();
   }, [])
@@ -59,7 +69,10 @@ const Order = () => {
                 </div>
                 <p>Items: {order.items.length}</p>
                 <p>&#8377;{order.amount}</p>
-                <select name="" id="">
+                <select name="" id=""
+                  onChange={(e) => updateOrderStatusHandler(e, order._id)}
+                  value={order.status}
+                >
                   <option value="Food Processing">Food Processing</option>
                   <option value="Out for delivery">Out for delivery</option>
                   <option value="Delivered">Delivered</option>
