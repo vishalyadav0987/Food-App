@@ -56,7 +56,8 @@ const PlaceOrder = () => {
     }
   }
   useEffect(() => {
-    if (!token || getTotalCartAmount() === 0) {
+    if (!token||getTotalCartAmount() === 0) {
+      toast.error("Not - Authorized!!");
       navigate('/');
     }
   },[token])
