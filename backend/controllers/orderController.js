@@ -71,12 +71,12 @@ const verifyOrder = async (req, res) => {
 
 const userOrders = async (req, res) => {
     const { userId } = req.body;
-    
+
     // Input validation
     if (!userId) {
         return res.status(400).json({ success: false, message: "User ID is required" });
     }
-    
+
     console.log(`Fetching orders for user ID: ${userId}`);
     try {
         const userOrder = await OrderSchema.find({ userId });
@@ -91,7 +91,7 @@ const userOrders = async (req, res) => {
 };
 
 // FETCH OR GET ALL ORDER FOR ADMIN PANEL
-const getAllOrderForAdmin = async(req,res)=>{
+const getAllOrderForAdmin = async (req, res) => {
     try {
         const userOrder = await OrderSchema.find({});
         if (!userOrder.length) {
@@ -104,6 +104,18 @@ const getAllOrderForAdmin = async(req,res)=>{
     }
 }
 
+// API FOR UPDATING THE ORDER STATUS FOR ADMIN
+const updateOrderStatus = async (req, res) => {
+    const { orderId,status } = req.body;
+    try {
+        await OrderSchema.findByIdAndUpdate(orderId,{status:status});
+        res.json({success:true,message:"Status Updated!"});
+    } catch (error) {
+        console.error("Error in updateOrderStatus function:", error.message);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+}
+
 module.exports = userOrders;
 
 module.exports = {
@@ -111,4 +123,5 @@ module.exports = {
     verifyOrder,
     userOrders,
     getAllOrderForAdmin,
+    updateOrderStatus,
 }
