@@ -8,7 +8,7 @@ const protectedRouteMiddleware = async (req, res, next) => {
     }
     try {
         const token_decode = jwt.verify(token, process.env.JWT_SECERET);
-        console.log(token_decode);
+        // console.log(token_decode);
         req.body.userId = token_decode.id;
         next();
     } catch (error) {
