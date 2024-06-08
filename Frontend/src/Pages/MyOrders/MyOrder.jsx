@@ -36,8 +36,10 @@ const MyOrder = () => {
                                 })}</p>
                                 <p>&#8377;{order.amount}.00</p>
                                 <p>Items: {order.items.length}</p>
-                                <p><span>&#x25cf;</span><b> {order.status}</b></p>
-                                <button>Track Order</button>
+                                <p><span 
+                                style={{color:`${order.status==="Delivered"?"#1ca26f":"tomato"}`}}
+                                >&#x25cf;</span><b> {order.status}</b></p>
+                                <button onClick={fetchMyOrders}>Track Order</button>
                             </div>
                         )
                     })
