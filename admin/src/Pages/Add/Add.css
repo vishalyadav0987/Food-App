@@ -87,4 +87,13 @@ input::placeholder {
     .product-price-container input {
         width: 100%;
     }
+    .upload-img-container{
+        width: 100%;
+    }
+    .upload-img-container img{
+        width: 100%;
+    }
+    .add-btn{
+        max-width: none;
+    }
 }
