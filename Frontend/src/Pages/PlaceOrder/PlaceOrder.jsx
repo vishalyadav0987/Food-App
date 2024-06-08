@@ -49,7 +49,6 @@ const PlaceOrder = () => {
     let response = await axios.post(`${url}/api/v1/order/place`,orderData,{headers:{token}});
     if(response.data.success){
       const {session_url}=response.data;
-      toast.success("Payment succesfully paid!");
       window.location.replace(session_url);
     }
     else{
