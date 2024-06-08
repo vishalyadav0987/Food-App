@@ -8,6 +8,7 @@ import Footer from './Components/Footer/Footer'
 import Login from './Pages/Login/Login'
 import { Toaster } from 'react-hot-toast'
 import Verify from './Pages/Verify/Verify'
+import MyOrder from './Pages/MyOrders/MyOrder'
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
           <Route path='/verify' element={<Verify />} />
+          <Route path='/myorders' element={<MyOrder />} />
         </Routes>
         <Footer />
       </BrowserRouter>
