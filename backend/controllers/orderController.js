@@ -78,7 +78,6 @@ const userOrders = async (req, res) => {
     }
     
     console.log(`Fetching orders for user ID: ${userId}`);
-    
     try {
         const userOrder = await OrderSchema.find({ userId });
         if (!userOrder.length) {
@@ -91,10 +90,25 @@ const userOrders = async (req, res) => {
     }
 };
 
+// FETCH OR GET ALL ORDER FOR ADMIN PANEL
+const getAllOrderForAdmin = async(req,res)=>{
+    try {
+        const userOrder = await OrderSchema.find({});
+        if (!userOrder.length) {
+            return res.status(404).json({ success: false, message: "No orders found for this user" });
+        }
+        res.status(200).json({ success: true, data: userOrder });
+    } catch (error) {
+        console.error("Error in userOrders function:", error.message);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+}
+
 module.exports = userOrders;
 
 module.exports = {
     placeOrder,
     verifyOrder,
     userOrders,
+    getAllOrderForAdmin,
 }
