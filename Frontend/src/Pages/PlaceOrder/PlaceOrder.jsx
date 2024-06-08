@@ -3,10 +3,10 @@ import { StoreContext } from '../../Context/StoreContext'
 import { useNavigate } from 'react-router-dom';
 import './PlaceOrder.css';
 import axios from 'axios';
-import {toast} from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, url, food_list,cartItem } = useContext(StoreContext);
+  const { getTotalCartAmount, token, url, food_list, cartItem } = useContext(StoreContext);
   const navigate = useNavigate();
   const [data, setData] = useState({
     firstName: "",
@@ -31,38 +31,42 @@ const PlaceOrder = () => {
   const placeOrderHandler = async (e) => {
     e.preventDefault();
     let orderItems = [];
-    food_list.map((item)=>{
+    food_list.map((item) => {
       // woh wale item jiski id cart me present id se match karti hai isliye hai ye condition
-      if(cartItem[item._id]>0){
+      if (cartItem[item._id] > 0) {
         // item means pura ek object hai
         let itemInfo = item;
-        itemInfo["quantity"]=cartItem[item._id];
+        itemInfo["quantity"] = cartItem[item._id];
         orderItems.push(itemInfo);
       }
     })
     // console.log(orderItems);
-    let orderData ={
-      address:data,
-      items:orderItems,
-      amount:getTotalCartAmount()+50,
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalCartAmount() + 50,
     }
-    let response = await axios.post(`${url}/api/v1/order/place`,orderData,{headers:{token}});
-    if(response.data.success){
-      const {session_url}=response.data;
+    let response = await axios.post(`${url}/api/v1/order/place`, orderData, { headers: { token } });
+    if (response.data.success) {
+      const { session_url } = response.data;
       window.location.replace(session_url);
     }
-    else{
+    else {
       toast.error('Something went wrong,try again later!');
     }
   }
-
+  useEffect(() => {
+    if (!token || getTotalCartAmount() === 0) {
+      navigate('/');
+    }
+  },[token])
   return (
     <section className="place-order-container">
       <form className='place-order' onSubmit={placeOrderHandler}>
         <div className="place-order-left">
           <p className="title">Delivery Information</p>
           <div className="multi-fields">
-            <input required 
+            <input required
               name='firstName'
               onChange={onChangeHandle}
               value={data.firstName}
