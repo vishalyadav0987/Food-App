@@ -34,10 +34,10 @@ Food_App is a full-stack web application designed to streamline the food orderin
 ## Installation
 
 1. *Clone the repository*:
-    bash
+    ``` bash
     git clone https://github.com/yourusername/Food_App.git
     cd Food_App
-    
+    ```
 
 2. *Install backend dependencies*:
     bash
