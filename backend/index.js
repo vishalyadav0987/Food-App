@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path')
 require('dotenv').config();
 const connectDB = require('./connectDB/connect');
 const foodRoutes = require('./routes/foodRoute');
@@ -18,6 +19,15 @@ app.use('/images', express.static('./uploads')); // SHOWING IMAGE ON LOCALHOST L
 app.use('/api/v1/user',userRoutes);
 app.use('/api/v1/cart',cartRoutes);
 app.use('/api/v1/order',orderRoutes);
+
+
+if(process.env.NODE_ENV==="production"){
+    const frontendPath = path.join(__dirname,"..","frontend","dist");
+    app.use(express.static(frontendPath));
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(frontendPath, "index.html"))
+    })
+}
 
 app.get('/test', (req, res) => {
     res.send("Hi !! this is test route for testing purpose");
